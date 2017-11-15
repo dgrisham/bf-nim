@@ -1,0 +1,72 @@
+OFFSET; NOT SURE IF NEEDED
++>10
+
+SET NEGATIVE REFERENCE
+-
+>
+
+GET USER INPUT FOR NUMBER OF STICKS IN EACH HEAP;
+AS MANY NUMBERS AS DESIRED; SEPARATED BY SPACES;
+SINGLE-DIGIT INTEGERS ONLY
+[+10 , -47 >2 , -10]        GET USER INPUT UNTIL A NEWLINE IS INPUTTED
+[-]                         GET RID OF TRAILING NEWLINE
+
+GO TO INDEX JUST BEFORE FIRST HEAP USING NEGATIVE REF
++
+[ - < + ]
+>
+
+MAIN LOOP
+[
+                            PRINT EXTRA NEWLINE FROM INITIAL INPUT
+    <4                      BACK UP FROM FIRST HEAP BY FOUR INDICES
+    ,-48                    GET USER INPUT FOR HEAP NUMBER
+    >                       
+    ,                       ABSORB NEWLINE
+    ,-48                    GET USER INPUT FOR NUMBER OF STICKS TO TAKE
+
+
+    <
+    [ >> + << - ]           SWAP HEAP NUMBER AND NUM STICKS VALUES
+    >
+
+
+    ROTATION LOOP TO REMOVE SELECTED NUM OF STICKS FROM SPECIFIED HEAP
+    [
+        >
+        [
+            [ > + < - ]
+            >> [ << + >> - ]
+            < [ > + < - ]
+            > -
+        ]
+
+        << -                  TAKE ONE FROM SPECIFIED HEAP
+
+        [   
+            [ > + < - ]
+            >> + [ << + >> - ]
+            < [ > + < - ]
+            <
+            <<
+        ]
+        >-                    DECREMENT STORED NUM STICKS VALUE
+    ]
+    > [-]                     BRING HEAP NUMBER BACK TO ZERO
+    -                         RESET NEGATIVE REFERENCE
+    >2                        START BACK AT FIRST HEAP
+
+    PRINT BOARD
+    [       
+        +47.-47               PRINT HEAP VALUE
+        >
+        +32.-32               PRINT SPACES
+        >
+    ]
+    ,.[-]                     PRINT NEWLINE FROM PREVIOUS INPUT
+
+    GO TO FIRST HEAP USING NEG REF
+    +
+    [ - < + ]
+    >2
+]
