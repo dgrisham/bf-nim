@@ -4,7 +4,7 @@ A simple version of the game Nim written in Brainfuck. This was done in a single
 night years ago, putting it on Github for fun. The `nim.pybf` file is a
 pseudo-Brainfuck file that the `bf_reader.py` file translates into actual
 Brainfuck (the main advantage of this is the ability to repeat characters with a
-number, e.g. writing `++++` (`bf`) as `+4` (`pybf`).
+number, e.g. writing `++++` (`bf`) as `+4` (`pybf`)).
 
 There are also comments in `nim.pybf` roughly explaining what's happening
 throughout.
